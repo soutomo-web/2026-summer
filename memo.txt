@@ -1,1 +1,3 @@
 python -m http.server 8000
+https://soutomo-web.github.io/2026-summer/
+https://vigilant-disco-jrj4w66qw9jjfq4g5-8000.app.github.dev/
