@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>精算明細表</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            color: #11816b; /* アクセントカラー */
+            margin-bottom: 20px;
+            border-bottom: 2px solid #16a085; /* ベースカラー */
+            padding-bottom: 10px;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        th {
+            background-color: #16a085; /* ベースカラー */
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #fbfdfc;
+        }
+        tr:hover {
+            background-color: #f0f7f5;
+        }
+        /* 数値が入る列は右寄せ */
+        .num {
+            text-align: right;
+        }
+        /* 総額の行を目立たせる */
+        .total-row {
+            background-color: #e8f5f2 !important;
+            font-weight: bold;
+            font-size: 1.1em;
+            border-top: 2px solid #16a085; /* ベースカラー */
+            border-bottom: 2px solid #11816b; /* アクセントカラー */
+        }
+        .total-row td {
+            color: #11816b; /* アクセントカラー */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>旅行・お出かけ 精算明細</h1>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>項目</th>
+                    <th class="num">単価</th>
+                    <th class="num">数量</th>
+                    <th class="num">合計</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>宿泊費</td>
+                    <td class="num">12,500</td>
+                    <td class="num">2</td>
+                    <td class="num">25,000</td>
+                </tr>
+                <tr>
+                    <td>バス</td>
+                    <td class="num">270</td>
+                    <td class="num">4</td>
+                    <td class="num">1,080</td>
+                </tr>
+                <tr>
+                    <td>朝食</td>
+                    <td class="num">1,350</td>
+                    <td class="num">2</td>
+                    <td class="num">2,700</td>
+                </tr>
+                <tr>
+                    <td>ミュージアム（大人）</td>
+                    <td class="num">1,000</td>
+                    <td class="num">1</td>
+                    <td class="num">1,000</td>
+                </tr>
+                <tr>
+                    <td>ミュージアム（子供）</td>
+                    <td class="num">500</td>
+                    <td class="num">1</td>
+                    <td class="num">500</td>
+                </tr>
+                <tr>
+                    <td>昼食（焼肉定食）</td>
+                    <td class="num">1,700</td>
+                    <td class="num">1</td>
+                    <td class="num">1,700</td>
+                </tr>
+                <tr>
+                    <td>昼食（肉野菜炒）</td>
+                    <td class="num">1,200</td>
+                    <td class="num">1</td>
+                    <td class="num">1,200</td>
+                </tr>
+                <tr>
+                    <td>夕食（サイゼリア）</td>
+                    <td class="num">1,500</td>
+                    <td class="num">2</td>
+                    <td class="num">3,000</td>
+                </tr>
+                <tr>
+                    <td>おみやげ</td>
+                    <td class="num">1,500</td>
+                    <td class="num">1</td>
+                    <td class="num">1,500</td>
+                </tr>
+                <tr>
+                    <td>雑費（ジュース、お菓子）</td>
+                    <td class="num">500</td>
+                    <td class="num">1</td>
+                    <td class="num">500</td>
+                </tr>
+                <tr>
+                    <td>ゲームセンター</td>
+                    <td class="num">600</td>
+                    <td class="num">1</td>
+                    <td class="num">600</td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="3">総額</td>
+                    <td class="num">38,780</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
