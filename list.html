@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>旅行持ち物リスト</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            color: #11816b; /* アクセントカラー */
+            margin-bottom: 20px;
+            border-bottom: 2px solid #16a085; /* ベースカラー */
+            padding-bottom: 10px;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        th {
+            background-color: #16a085; /* ベースカラー */
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #fbfdfc;
+        }
+        
+        /* -----------------------------------
+           チェックリスト用の追加・上書きスタイル 
+           ----------------------------------- */
+        tbody tr {
+            cursor: pointer; /* 行全体をクリック可能に */
+            transition: background-color 0.2s ease;
+        }
+        tbody tr:hover {
+            background-color: #e8f5f2; /* ホバー時は少し濃いベースカラー系に */
+        }
+        .checkbox-cell {
+            width: 40px;
+            text-align: center;
+        }
+        input[type="checkbox"] {
+            transform: scale(1.4);
+            cursor: pointer;
+            accent-color: #16a085; /* チェックボックスの色も合わせる */
+        }
+        /* チェックされた時のスタイル */
+        tr.checked {
+            background-color: #f0f0f0 !important; /* 全体をグレーに */
+            color: #999;
+        }
+        tr.checked .item-name {
+            text-decoration: line-through; /* 取り消し線を引く */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>旅行持ち物リスト</h1>
+    <div class="table-wrapper">
+        <table id="checklistTable">
+            <thead>
+                <tr>
+                    <th class="checkbox-cell">確認</th>
+                    <th>持ち物</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="checkbox-cell"><input type="checkbox"></td>
+                    <td class="item-name">マイナンバーカード</td>
+                </tr>
+                <tr>
+                    <td class="checkbox-cell"><input type="checkbox"></td>
+                    <td class="item-name">お財布</td>
+                </tr>
+                <tr>
+                    <td class="checkbox-cell"><input type="checkbox"></td>
+                    <td class="item-name">Suica</td>
+                </tr>
+                <tr>
+                    <td class="checkbox-cell"><input type="checkbox"></td>
+                    <td class="item-name">スマホ</td>
+                </tr>
+                <tr>
+                    <td class="checkbox-cell"><input type="checkbox"></td>
+                    <td class="item-name">着替え（シャツ、下着、靴下）</td>
+                </tr>
+                <tr>
+                    <td class="checkbox-cell"><input type="checkbox"></td>
+                    <td class="item-name">充電器、ケーブル</td>
+                </tr>
+                <tr>
+                    <td class="checkbox-cell"><input type="checkbox"></td>
+                    <td class="item-name">イヤホン</td>
+                </tr>
+                <tr>
+                    <td class="checkbox-cell"><input type="checkbox"></td>
+                    <td class="item-name">インスタントコーヒー</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const rows = document.querySelectorAll('#checklistTable tbody tr');
+
+        rows.forEach(row => {
+            const itemName = row.querySelector('.item-name').textContent.trim();
+            const checkbox = row.querySelector('input[type="checkbox"]');
+            
+            // 1. ページ読み込み時にローカルストレージから状態を取得して反映
+            // 保存するキーを "trip_item_持ち物名" にしています
+            const storageKey = 'trip_item_' + itemName;
+            const savedState = localStorage.getItem(storageKey);
+            
+            if (savedState === 'checked') {
+                checkbox.checked = true;
+                row.classList.add('checked');
+            }
+
+            // 2. クリックイベント（チェック操作）の設定
+            row.addEventListener('click', function(e) {
+                // チェックボックス自体を直接クリックした場合の二重反転を防ぐ
+                if (e.target.tagName !== 'INPUT') {
+                    checkbox.checked = !checkbox.checked;
+                }
+                
+                // チェック状態に応じてクラスの付け外しと、ローカルストレージへの保存を行う
+                if (checkbox.checked) {
+                    this.classList.add('checked');
+                    localStorage.setItem(storageKey, 'checked'); // 保存
+                } else {
+                    this.classList.remove('checked');
+                    localStorage.removeItem(storageKey); // チェックが外れたら削除（または 'unchecked' 等で保存）
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
