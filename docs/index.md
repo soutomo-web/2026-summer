@@ -20,4 +20,6 @@ graph TD
     Decision -->|No| Action2[処理B]
 
 
+## 4. 画面イメージ
+![ロゴ](https://smt.docomo.ne.jp/dmenu/img/top_logo_gray.png)
     
