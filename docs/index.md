@@ -10,6 +10,7 @@
 
 ## 3. 画面イメージ
 ![ロゴ](https://smt.docomo.ne.jp/dmenu/img/top_logo_gray.png)
+<img width="50" src="https://smt.docomo.ne.jp/dmenu/img/top_logo_gray.png">
 
 ## 4. ロジックフロー (Mermaid)
 ※システムの処理フローや条件分岐をここに記述してください。AIはこの図を読み取って実装を行います。
