@@ -8,7 +8,10 @@
 - [ ] 関連するADR (技術的決定): `docs/ADR/xxxx.md`
 - [ ] 関連するIssue/PR: (GitHubのリンク)
 
-## 3. ロジックフロー (Mermaid)
+## 3. 画面イメージ
+![ロゴ](https://smt.docomo.ne.jp/dmenu/img/top_logo_gray.png)
+
+## 4. ロジックフロー (Mermaid)
 ※システムの処理フローや条件分岐をここに記述してください。AIはこの図を読み取って実装を行います。
 
 ```mermaid
@@ -20,6 +23,3 @@ graph TD
     Decision -->|No| Action2[処理B]
 
 
-## 4. 画面イメージ
-![ロゴ](https://smt.docomo.ne.jp/dmenu/img/top_logo_gray.png)
-    
