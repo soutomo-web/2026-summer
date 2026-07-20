@@ -9,8 +9,8 @@
 - [ ] 関連するIssue/PR: (GitHubのリンク)
 
 ## 3. 画面イメージ
-![ロゴ](https://smt.docomo.ne.jp/dmenu/img/top_logo_gray.png)
-<img width="50" src="https://smt.docomo.ne.jp/dmenu/img/top_logo_gray.png">
+![ロゴ](https://www.google.com/logos/doodles/2026/world-cup-2026-a-celebration-6753651837111349.2-law.gif)
+<img width="50" src="https://www.google.com/logos/doodles/2026/world-cup-2026-a-celebration-6753651837111349.2-law.gif">
 
 ## 4. ロジックフロー (Mermaid)
 ※システムの処理フローや条件分岐をここに記述してください。AIはこの図を読み取って実装を行います。
